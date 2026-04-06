@@ -1,0 +1,232 @@
+.topbar {
+  height: var(--topbar-h);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  gap: 16px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: var(--z-topbar);
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.breadcrumbIcon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.breadcrumbActive {
+  color: var(--blue-mid);
+  font-weight: 500;
+}
+
+.sep {
+  color: var(--border);
+}
+
+.right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  position: relative;
+}
+
+.btn:hover {
+  background: var(--bg);
+  color: var(--blue-mid);
+  border-color: var(--blue-mid);
+}
+
+.btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.notifDot {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 7px;
+  height: 7px;
+  background: var(--gold);
+  border-radius: 50%;
+  border: 1.5px solid var(--surface);
+}
+
+.divider {
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+}
+
+.userBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px 6px 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: transparent;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.userBtn:hover {
+  background: var(--bg);
+  border-color: var(--border);
+}
+
+.userAvatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue-mid), var(--blue-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.userName {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* Notification dropdown */
+.notifDropdown {
+  position: absolute;
+  top: calc(var(--topbar-h) + 8px);
+  right: 0;
+  width: 320px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow-lg);
+  z-index: var(--z-dropdown);
+  opacity: 0;
+  transform: translateY(-8px) scale(0.97);
+  pointer-events: none;
+  transition: opacity 0.18s, transform 0.18s;
+  overflow: hidden;
+}
+
+.notifDropdown.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+.notifHeader {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.notifTitle {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.notifClear {
+  font-size: 11.5px;
+  color: var(--blue-mid);
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.notifItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.12s;
+}
+
+.notifItem:last-child {
+  border-bottom: none;
+}
+
+.notifItem:hover {
+  background: var(--bg);
+}
+
+.notifIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.notifIcon.blue { background: rgba(30, 77, 140, 0.1); color: var(--blue-mid); }
+.notifIcon.gold { background: rgba(242, 201, 76, 0.15); color: var(--gold-dim); }
+
+.notifIcon svg { width: 14px; height: 14px; }
+
+.notifMsg {
+  font-size: 12.5px;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.notifTime {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.notifUnreadDot {
+  width: 6px;
+  height: 6px;
+  background: var(--blue-mid);
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .topbar {
+    padding: 0 16px;
+  }
+
+  .mobileMenuBtn {
+    display: flex;
+  }
+}

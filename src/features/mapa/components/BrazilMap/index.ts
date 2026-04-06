@@ -1,0 +1,1 @@
+export { BrazilMap } from './BrazilMap'

@@ -1,0 +1,259 @@
+.section {
+  margin-bottom: 36px;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.label em {
+  font-style: normal;
+  color: var(--blue-mid);
+}
+
+.hint {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  overflow: visible;
+}
+
+.box:focus-within {
+  border-color: var(--blue-mid);
+  box-shadow: 0 0 0 4px rgba(30, 77, 140, 0.08), var(--shadow);
+}
+
+.searchIcon {
+  padding: 0 16px 0 20px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.searchIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: transparent;
+  padding: 18px 0;
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.divider {
+  width: 1px;
+  height: 28px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+.filter {
+  padding: 0 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+  white-space: nowrap;
+  transition: color 0.15s;
+  background: none;
+  border: none;
+}
+
+.filter:hover {
+  color: var(--blue-mid);
+}
+
+.filter svg {
+  width: 14px;
+  height: 14px;
+}
+
+.submitBtn {
+  margin: 8px;
+  padding: 10px 22px;
+  background: linear-gradient(135deg, var(--blue-mid) 0%, var(--blue-deep) 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(30, 77, 140, 0.3);
+}
+
+.submitBtn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(30, 77, 140, 0.4);
+}
+
+.submitBtn:active {
+  transform: translateY(0);
+}
+
+.submitBtn svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* Autocomplete dropdown */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  padding: 8px;
+  z-index: var(--z-dropdown);
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.dropdown.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13.5px;
+  color: var(--text);
+  transition: background 0.12s;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+.dropdownItem:hover {
+  background: var(--bg);
+}
+
+.dropdownItem svg {
+  width: 16px;
+  height: 16px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.itemBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.itemOrgao {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.itemPrice {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--success);
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.itemHistoryPrice {
+  margin-left: auto;
+  font-size: 12px;
+  color: #9CA3AF;
+  font-weight: 400;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.sectionLabel {
+  padding: 6px 10px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Tags row */
+.tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.tagsLabel {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.tag {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 99px;
+  background: rgba(30, 77, 140, 0.07);
+  color: var(--blue-mid);
+  border: 1px solid rgba(30, 77, 140, 0.15);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.tag:hover {
+  background: rgba(30, 77, 140, 0.12);
+  border-color: var(--blue-mid);
+}
+
+/* Skeleton items */
+.skeletonItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  pointer-events: none;
+}

@@ -1,0 +1,251 @@
+.page {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--blue-deep);
+  margin: 0 0 4px;
+  letter-spacing: -0.4px;
+}
+
+.sub {
+  font-size: 13px;
+  color: #6B7280;
+  margin: 0;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.select {
+  appearance: none;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") no-repeat right 10px center;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 8px 32px 8px 12px;
+  font-size: 13px;
+  color: var(--blue-deep);
+  font-family: var(--font-sans);
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.select:focus { border-color: var(--blue-light); }
+
+.exportBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--blue-deep);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.exportBtn svg { width: 15px; height: 15px; }
+.exportBtn:hover { background: var(--blue-mid); }
+
+/* ── KPI ── */
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 1100px) { .kpiGrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px)  { .kpiGrid { grid-template-columns: 1fr; } }
+
+.kpiCard {
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  box-shadow: 0 1px 4px rgba(13,41,82,0.07), 0 4px 16px rgba(13,41,82,0.04);
+  border: 1px solid rgba(13,41,82,0.06);
+}
+
+.kpiIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--blue-mid), var(--blue-bright));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+}
+.kpiIcon svg { width: 20px; height: 20px; }
+
+.kpiBody { flex: 1; min-width: 0; }
+
+.kpiLabel {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #8898AA;
+  margin-bottom: 6px;
+}
+
+.kpiValue {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--blue-deep);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.kpiDelta {
+  font-size: 12px;
+  color: #6B7280;
+}
+.kpiDelta.danger   { color: #DC2626; }
+.kpiDelta.positive { color: #27AE60; }
+
+/* ── Cards ── */
+.card {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 4px rgba(13,41,82,0.07), 0 4px 16px rgba(13,41,82,0.04);
+  border: 1px solid rgba(13,41,82,0.06);
+  position: relative;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--blue-deep);
+  margin: 0;
+}
+
+.cardSub {
+  font-size: 12px;
+  color: #8898AA;
+}
+
+/* ── Layout rows ── */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 1050px) { .row { grid-template-columns: 1fr; } }
+
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── States chart ── */
+.statesCard {
+  /* allow tall chart to scroll */
+}
+
+.statesChartWrap {
+  overflow-y: auto;
+  max-height: 560px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(13,41,82,0.15) transparent;
+}
+.statesChartWrap::-webkit-scrollbar { width: 4px; }
+.statesChartWrap::-webkit-scrollbar-thumb {
+  background: rgba(13,41,82,0.15);
+  border-radius: 4px;
+}
+
+/* ── Donut center overlay ── */
+.donutCenter {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  /* vertically centered within the 220px pie, offset by cardHeader ~60px and padding 24px */
+  top: calc(24px + 60px + 220px / 2 - 28px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.donutVal {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--blue-deep);
+  line-height: 1;
+}
+
+.donutLabel {
+  font-size: 11px;
+  color: #8898AA;
+  font-weight: 500;
+}
+
+/* ── Tooltip ── */
+.chartTooltip {
+  background: var(--blue-deep);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 12px;
+  color: #E2E8F0;
+  box-shadow: 0 8px 24px rgba(13,41,82,0.3);
+  min-width: 140px;
+}
+
+.ttLabel {
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 6px;
+  font-size: 12px;
+}
+
+.chartTooltip p {
+  margin: 2px 0;
+}
+
+.chartTooltip strong {
+  font-weight: 700;
+  color: #fff;
+}

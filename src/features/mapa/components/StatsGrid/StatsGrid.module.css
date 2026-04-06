@@ -1,0 +1,77 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+
+.card.blue::before  { background: linear-gradient(90deg, var(--blue-mid), var(--blue-light)); }
+.card.green::before { background: linear-gradient(90deg, #1e9e4f, var(--success)); }
+.card.red::before   { background: linear-gradient(90deg, #991b1b, var(--danger)); }
+.card.gold::before  { background: linear-gradient(90deg, var(--gold-dim), var(--gold)); }
+
+.icon {
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon.blue  { background: rgba(30, 77, 140, 0.1);  color: var(--blue-mid); }
+.icon.green { background: rgba(39, 174, 96, 0.1);  color: var(--success); }
+.icon.red   { background: rgba(220, 38, 38, 0.08); color: var(--danger); }
+.icon.gold  { background: rgba(242, 201, 76, 0.15);color: var(--gold-dim); }
+
+.icon svg { width: 16px; height: 16px; }
+
+.label {
+  font-size: 10.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.value {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.sub {
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+.sub strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+@media (max-width: 1200px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
