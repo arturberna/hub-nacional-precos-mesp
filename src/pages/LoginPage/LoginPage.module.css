@@ -1,82 +1,212 @@
 .page {
-  min-height: 100vh;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ── Painel esquerdo — branding ── */
+.brand {
+  flex: 1;
+  background: linear-gradient(160deg, var(--blue-deep) 0%, var(--blue-mid) 60%, var(--blue-bright) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Círculos decorativos de fundo */
+.brand::before,
+.brand::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.08;
+  background: #fff;
+}
+.brand::before {
+  width: 480px;
+  height: 480px;
+  top: -140px;
+  left: -140px;
+}
+.brand::after {
+  width: 320px;
+  height: 320px;
+  bottom: -100px;
+  right: -80px;
+}
+
+.brandContent {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 380px;
+}
+
+.brandLogo {
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  color: #fff;
+}
+.brandLogo svg { width: 32px; height: 32px; }
+
+.brandTitle {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  letter-spacing: -0.4px;
+}
+
+.brandTitle span {
+  color: var(--gold);
+}
+
+.brandSub {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+}
+
+.brandDivider {
+  width: 40px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin: 20px auto;
+  opacity: 0.8;
+}
+
+.brandTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 99px;
+  padding: 6px 14px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.3px;
+  margin-top: 24px;
+}
+
+/* ── Painel direito — formulário ── */
+.formPanel {
+  width: 480px;
+  flex-shrink: 0;
+  background: var(--bg);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-4);
-  background-color: var(--bg-page);
+  padding: 48px 40px;
+  overflow-y: auto;
 }
 
 .card {
   width: 100%;
-  max-width: 420px;
-  background-color: var(--bg-surface);
-  border: var(--border-width) solid var(--border-default);
-  border-radius: var(--radius-xl);
-  padding: var(--space-8);
-  box-shadow: var(--shadow-lg);
+  max-width: 380px;
 }
 
-.logo {
-  text-align: center;
-  margin-bottom: var(--space-6);
+.cardHeader {
+  margin-bottom: 32px;
 }
 
-.logoIcon {
-  width: 48px;
-  height: 48px;
-  background-color: var(--color-brand);
-  border-radius: var(--radius-lg);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-inverse);
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--space-3);
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--blue-deep);
+  margin: 0 0 6px;
+  letter-spacing: -0.3px;
 }
 
-.title {
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--text-default);
-  text-align: center;
-  margin-bottom: var(--space-2);
-}
-
-.subtitle {
-  font-size: var(--font-size-sm);
-  color: var(--text-secondary);
-  text-align: center;
-  margin-bottom: var(--space-6);
+.cardSub {
+  font-size: 14px;
+  color: #6B7280;
+  margin: 0;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: 16px;
 }
 
 .hint {
-  padding: var(--space-3);
-  background-color: var(--color-primary-50);
-  border: var(--border-width) solid var(--color-primary-200);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-xs);
-  color: var(--color-primary-700);
-  line-height: var(--line-height-relaxed);
+  padding: 12px 14px;
+  background: rgba(47, 111, 178, 0.08);
+  border: 1px solid rgba(47, 111, 178, 0.2);
+  border-radius: 10px;
+  font-size: 12px;
+  color: var(--blue-mid);
+  line-height: 1.6;
+  margin-bottom: 4px;
 }
-
 .hint strong {
   display: block;
-  margin-bottom: var(--space-1);
+  margin-bottom: 2px;
+  font-weight: 700;
 }
 
 .error {
-  padding: var(--space-3);
-  background-color: var(--color-danger-light);
-  border: var(--border-width) solid var(--color-danger);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-sm);
-  color: var(--color-danger-dark);
+  padding: 12px 14px;
+  background: rgba(220, 38, 38, 0.07);
+  border: 1px solid rgba(220, 38, 38, 0.25);
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--danger);
+}
+
+/* Override Button para usar cores do projeto */
+.submitBtn {
+  width: 100%;
+  padding: 12px;
+  background: var(--blue-mid);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  margin-top: 4px;
+}
+.submitBtn:hover:not(:disabled) { background: var(--blue-deep); }
+.submitBtn:active:not(:disabled) { transform: scale(0.99); }
+.submitBtn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ── Responsivo ── */
+@media (max-width: 860px) {
+  .page { flex-direction: column; }
+
+  .brand {
+    flex: none;
+    padding: 32px 24px;
+    min-height: 200px;
+  }
+
+  .brandTitle { font-size: 22px; }
+  .brandSub   { display: none; }
+  .brandDivider, .brandTag { display: none; }
+
+  .formPanel {
+    width: 100%;
+    flex: 1;
+    padding: 32px 24px;
+  }
 }
