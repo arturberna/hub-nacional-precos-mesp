@@ -1,0 +1,104 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+
+.map {
+  flex: 1;
+  min-height: 260px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(13,41,82,0.1);
+  z-index: 0;
+}
+
+/* Override Leaflet popup defaults */
+:global(.leaflet-popup-content-wrapper) {
+  border-radius: 10px !important;
+  box-shadow: 0 4px 20px rgba(13,41,82,0.18) !important;
+  border: none !important;
+  padding: 0 !important;
+}
+:global(.leaflet-popup-content) {
+  margin: 0 !important;
+}
+:global(.leaflet-popup-tip) {
+  background: white !important;
+}
+
+.popupContent {
+  padding: 12px 14px;
+  min-width: 130px;
+}
+
+.popupContent strong {
+  display: block;
+  font-size: 13px;
+  color: #0D2952;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.popupUf {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  background: rgba(30,77,140,0.1);
+  color: #1E4D8C;
+  border-radius: 4px;
+  padding: 1px 6px;
+  margin-bottom: 6px;
+}
+
+.popupPrice {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0D2952;
+  margin-bottom: 2px;
+}
+
+.popupOcorr {
+  font-size: 11px;
+  color: #8898AA;
+  margin-bottom: 4px;
+}
+
+.popupDelta {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 6px 2px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: #4B5563;
+  font-weight: 500;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 1.5px solid rgba(255,255,255,0.8);
+}
+
+.legendNote {
+  font-size: 10px;
+  color: #9CA3AF;
+  margin-left: auto;
+  font-style: italic;
+}

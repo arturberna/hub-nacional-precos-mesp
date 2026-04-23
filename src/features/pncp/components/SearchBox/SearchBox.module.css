@@ -257,3 +257,11 @@
   padding: 9px 12px;
   pointer-events: none;
 }
+
+.emptyMsg {
+  padding: 16px 16px;
+  font-size: 13px;
+  color: #8898AA;
+  text-align: center;
+}
+.emptyMsg strong { color: var(--blue-deep); }

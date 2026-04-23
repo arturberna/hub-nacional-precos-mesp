@@ -254,7 +254,7 @@ export function RelatoriosPage() {
                   axisLine={false}
                   tickLine={false}
                 />
-                <Tooltip content={<ChartTooltip />} cursor={{ fill: 'rgba(13,41,82,0.04)' }} />
+                <Tooltip content={<ChartTooltip />} cursor={{ fill: 'rgba(13,41,82,0.04)' }} wrapperStyle={{ border: 'none', boxShadow: 'none' }} />
                 <ReferenceLine
                   x={avg}
                   stroke={C.gold}
@@ -303,6 +303,8 @@ export function RelatoriosPage() {
                 <Tooltip
                   formatter={(v: number) => [`${v} estados`, '']}
                   contentStyle={{ background: C.blueDeep, border: 'none', borderRadius: 8, color: '#fff', fontSize: 12 }}
+                  labelStyle={{ color: '#fff', fontWeight: 700 }}
+                  itemStyle={{ color: '#E2E8F0' }}
                 />
                 <Legend
                   iconType="circle"
@@ -328,7 +330,7 @@ export function RelatoriosPage() {
                 <CartesianGrid vertical={false} stroke={C.grid} />
                 <XAxis dataKey="name" tick={{ fill: C.tick, fontSize: 10 }} axisLine={false} tickLine={false} />
                 <YAxis domain={['auto', 'auto']} tickFormatter={v => `${v}`} tick={{ fill: C.tick, fontSize: 10 }} axisLine={false} tickLine={false} width={36} />
-                <Tooltip content={<ChartTooltip />} cursor={{ fill: 'rgba(13,41,82,0.04)' }} />
+                <Tooltip content={<ChartTooltip />} cursor={{ fill: 'rgba(13,41,82,0.04)' }} wrapperStyle={{ border: 'none', boxShadow: 'none' }} />
                 <ReferenceLine y={avg} stroke={C.gold} strokeDasharray="4 3" strokeWidth={1.5} />
                 <Bar dataKey="media" name="Média" fill={C.blue} fillOpacity={0.85} radius={[4, 4, 0, 0]} maxBarSize={40} />
               </BarChart>
@@ -369,7 +371,7 @@ export function RelatoriosPage() {
               tickLine={false}
               width={56}
             />
-            <Tooltip content={<ChartTooltip />} cursor={{ stroke: C.grid, strokeWidth: 1 }} />
+            <Tooltip content={<ChartTooltip />} cursor={{ stroke: C.grid, strokeWidth: 1 }} wrapperStyle={{ border: 'none', boxShadow: 'none' }} />
             <Legend
               iconType="circle"
               iconSize={8}
@@ -406,7 +408,7 @@ export function RelatoriosPage() {
               axisLine={false}
               tickLine={false}
             />
-            <Tooltip content={<PctTooltip />} cursor={{ fill: 'rgba(13,41,82,0.04)' }} />
+            <Tooltip content={<PctTooltip />} cursor={{ fill: 'rgba(13,41,82,0.04)' }} wrapperStyle={{ border: 'none', boxShadow: 'none' }} />
             <ReferenceLine x={0} stroke={C.blueMid} strokeWidth={1} strokeOpacity={0.4} />
             <Bar dataKey="var" name="Variação" layout="vertical" radius={[0, 4, 4, 0]} maxBarSize={18}>
               {varData.map(d => (

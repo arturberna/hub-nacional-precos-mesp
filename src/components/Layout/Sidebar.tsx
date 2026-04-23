@@ -15,13 +15,11 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
     : 'MS'
 
   return (
-    <aside className={`${styles.sidebar} ${collapsed ? styles.collapsed : ''}`}>
-      <button className={styles.toggle} onClick={onToggle} title="Recolher menu">
-        <svg viewBox="0 0 10 10">
-          <path d="M6 2L3 5l3 3" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </button>
-
+    <aside
+      className={`${styles.sidebar} ${collapsed ? styles.collapsed : ''}`}
+      onClick={onToggle}
+      title={collapsed ? 'Expandir menu' : 'Recolher menu'}
+    >
       <div className={styles.brand}>
         <div className={styles.brandIcon}>
           <svg viewBox="0 0 24 24">
@@ -32,9 +30,15 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
           <div className={styles.brandTitle}>HUB NACIONAL</div>
           <div className={styles.brandSub}>Ministério do Esporte</div>
         </div>
+        <div className={`${styles.chevron} ${collapsed ? styles.chevronCollapsed : ''}`}>
+          <svg viewBox="0 0 10 10" fill="none">
+            <path d="M6 2L3 5l3 3" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
       </div>
 
-      <nav className={styles.nav}>
+      {/* stopPropagation protege todos os NavLinks — o clique navega mas não colapsa */}
+      <nav className={styles.nav} onClick={e => e.stopPropagation()}>
         <div className={styles.navSection}>Principal</div>
 
         <NavLink
@@ -92,6 +96,28 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
         </NavLink>
 
         <div className={styles.navSection} style={{ marginTop: '12px' }}>Análises</div>
+
+        <NavLink
+          to="/raio-x"
+          className={({ isActive }) => `${styles.navItem} ${isActive ? styles.active : ''}`}
+        >
+          <svg className={styles.navIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
+          </svg>
+          <span className={styles.navLabel}>Raio-X</span>
+        </NavLink>
+
+        <NavLink
+          to="/comparador"
+          className={({ isActive }) => `${styles.navItem} ${isActive ? styles.active : ''}`}
+        >
+          <svg className={styles.navIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="2" y="3" width="9" height="18" rx="1"/><rect x="13" y="3" width="9" height="18" rx="1"/>
+          </svg>
+          <span className={styles.navLabel}>Comparador</span>
+        </NavLink>
 
         <NavLink
           to="/relatorios"

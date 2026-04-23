@@ -8,6 +8,9 @@ import { LoginPage } from '@/pages/LoginPage'
 import { HomePage } from '@/pages/HomePage'
 import { MapaPage } from '@/pages/MapaPage'
 import { RelatoriosPage } from '@/pages/RelatoriosPage'
+import { ComparadorPage } from '@/pages/ComparadorPage'
+import { RaioXPage } from '@/pages/RaioXPage'
+import { AlertasPage } from '@/pages/AlertasPage'
 
 const router = createBrowserRouter([
   /* Rotas públicas */
@@ -34,6 +37,18 @@ const router = createBrowserRouter([
           {
             path: '/relatorios',
             element: <RelatoriosPage />,
+          },
+          {
+            path: '/comparador',
+            element: <ComparadorPage />,
+          },
+          {
+            path: '/raio-x',
+            element: <RaioXPage />,
+          },
+          {
+            path: '/alertas',
+            element: <AlertasPage />,
           },
         ],
       },

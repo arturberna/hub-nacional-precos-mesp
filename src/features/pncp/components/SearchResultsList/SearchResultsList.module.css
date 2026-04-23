@@ -1,0 +1,205 @@
+.wrap {
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid rgba(13, 41, 82, 0.1);
+  box-shadow: 0 4px 24px rgba(13, 41, 82, 0.08);
+  overflow: hidden;
+  animation: slideDown 0.22s cubic-bezier(0.22, 0.61, 0.36, 1);
+  margin-bottom: 8px;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(13, 41, 82, 0.07);
+  background: rgba(13, 41, 82, 0.02);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.count {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--blue-deep);
+}
+
+.queryLabel {
+  font-size: 13px;
+  color: #6B7280;
+}
+.queryLabel strong {
+  color: var(--blue-mid);
+  font-weight: 700;
+}
+
+.clearBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: 1.5px solid rgba(13, 41, 82, 0.12);
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6B7280;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: border-color 0.12s, color 0.12s;
+}
+.clearBtn svg { width: 13px; height: 13px; }
+.clearBtn:hover { border-color: var(--danger); color: var(--danger); }
+
+/* ── Empty ── */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 24px;
+  gap: 8px;
+  color: #8898AA;
+}
+.empty svg { width: 40px; height: 40px; opacity: 0.35; }
+.empty p { font-size: 14px; font-weight: 600; color: #4B5563; margin: 0; }
+.empty p strong { color: var(--blue-deep); }
+.empty span { font-size: 12px; }
+
+/* ── List ── */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 420px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(13,41,82,0.12) transparent;
+}
+.list::-webkit-scrollbar { width: 4px; }
+.list::-webkit-scrollbar-thumb { background: rgba(13,41,82,0.12); border-radius: 4px; }
+
+.list li + li {
+  border-top: 1px solid rgba(13, 41, 82, 0.06);
+}
+
+/* ── Result item ── */
+.resultItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-sans);
+  transition: background 0.1s;
+}
+.resultItem:hover { background: rgba(13, 41, 82, 0.03); }
+.resultItem:hover .arrow { opacity: 1; transform: translateX(2px); }
+
+.itemMain {
+  flex: 1;
+  min-width: 0;
+}
+
+.itemName {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--blue-deep);
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itemMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tipoBadge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.material {
+  background: rgba(47, 111, 178, 0.1);
+  color: var(--blue-mid);
+}
+.servico {
+  background: rgba(242, 201, 76, 0.15);
+  color: #92711a;
+}
+
+.categoria {
+  font-size: 11px;
+  color: #8898AA;
+}
+
+.sneaelisBadge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(39, 174, 96, 0.1);
+  color: #166534;
+}
+
+.itemRight {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.itemPrice {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--blue-deep);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+}
+
+.priceLabel {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  color: #9CA3AF;
+}
+
+.itemStats {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+  font-size: 11px;
+  color: #8898AA;
+}
+
+.arrow {
+  flex-shrink: 0;
+  color: #CBD5E1;
+  opacity: 0;
+  transition: opacity 0.1s, transform 0.1s;
+}
+.arrow svg { width: 16px; height: 16px; }

@@ -1,0 +1,1 @@
+export { ComparadorPage } from './ComparadorPage'
