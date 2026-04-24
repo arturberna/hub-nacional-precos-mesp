@@ -325,7 +325,12 @@ interface BrazilMapProps {
 export function BrazilMap({ stateData, avg }: BrazilMapProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const tooltipEl    = useRef<HTMLDivElement>(null)
-
+  const ttRef = useRef<{
+    state: string
+    price: string
+    above: boolean
+    varPct: string
+  } | null>(null)
   useEffect(() => {
     const container = containerRef.current
     if (!container) return
